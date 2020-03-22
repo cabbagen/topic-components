@@ -1,6 +1,6 @@
 import TCText from './text.vue';
 import TCTextEdit from './textEdit.vue';
-import struct from './struct';
+import struct from '../../../struct/text';
 
 export default {
     struct,

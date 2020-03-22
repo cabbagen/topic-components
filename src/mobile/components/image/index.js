@@ -1,6 +1,6 @@
 import TCImage from './image.vue';
 import TCImageEdit from './imageEdit.vue';
-import struct from './struct';
+import struct from '../../../struct/image';
 
 export default {
     struct,

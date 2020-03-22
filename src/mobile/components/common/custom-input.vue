@@ -18,13 +18,19 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
+import { Icon, Input } from 'view-design';
+
 export default {
     name: 'tc-custom-input',
     data: function() {
         return {
             inputText: '',
         };
+    },
+    components: {
+        Icon,
+        'i-input': Input,
     },
     props: {
         prefix: {

@@ -7,6 +7,7 @@
 </template>
 
 <script type="text/javascript">
+
 export default {
     name: 'tc-image',
     data: function() {

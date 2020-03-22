@@ -37,8 +37,9 @@
 </template>
 
 <script type="text/javascript">
+import { Input, RadioGroup, Radio } from 'view-design';
 import editMinix from '../../minixs/edit.minixs';
-import struct from './struct';
+import struct from '../../../struct/image';
 import CustomInput from '../common/custom-input.vue';
 import Panel from '../common/panel.vue';
 
@@ -48,6 +49,9 @@ export default {
     components: {
         Panel,
         CustomInput,
+        RadioGroup,
+        Radio,
+        'i-input': Input,
     },
     data: function() {
         return {

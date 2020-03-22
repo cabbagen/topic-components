@@ -1,6 +1,6 @@
 import TCPlaceholder from './placeholder.vue';
 import TCPlaceholderEdit from './placeholderEdit.vue';
-import struct from './struct';
+import struct from '../../../struct/placeholder';
 
 export default {
     struct,

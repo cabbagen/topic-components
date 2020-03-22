@@ -17,12 +17,18 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
+import { Icon, Button } from 'view-design';
+
 export default {
     name: 'tc-common-panel',
     data: function() {
         return {
         };
+    },
+    components: {
+        Icon,
+        Button
     },
     props: {
         title: {

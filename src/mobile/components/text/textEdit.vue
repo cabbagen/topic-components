@@ -37,9 +37,10 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
+import { ColorPicker, RadioGroup, Radio } from 'view-design';
 import editMinix from '../../minixs/edit.minixs';
-import struct from './struct';
+import struct from '../../../struct/text';
 import Panel from '../common/panel.vue';
 
 export default {
@@ -73,6 +74,9 @@ export default {
     },
     components: {
         Panel,
+        ColorPicker,
+        RadioGroup,
+        Radio,
     },
 }
 </script>

@@ -28,8 +28,9 @@
 </template>
 
 <script>
+import { Input, ColorPicker } from 'view-design';
 import editMinix from '../../minixs/edit.minixs';
-import struct from './struct';
+import struct from '../../../struct/placeholder';
 import Panel from '../common/panel.vue';
 
 export default {
@@ -51,6 +52,8 @@ export default {
     },
     components: {
         Panel,
+        ColorPicker,
+        'i-input': Input,
     },
 }
 </script>
