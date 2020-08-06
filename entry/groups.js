@@ -4,6 +4,7 @@ const groups = [{
         { type: 'image', title: '图片组件' },
         { type: 'text', title: '文本组件' },
         { type: 'placeholder', title: '占位组件' },
+        { type: 'carousel', title: '轮播图' },
     ],
 }];
 

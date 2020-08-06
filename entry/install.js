@@ -4,6 +4,7 @@ import VueClipboard from 'vue-clipboard2';
 import Image from '../src/mobile/components/image';
 import Text from '../src/mobile/components/text';
 import Placeholder from '../src/mobile/components/placeholder';
+import Carousel from '../src/mobile/components/carousel';
 
 import 'view-design/dist/styles/iview.css';
 
@@ -15,11 +16,13 @@ export const components = [
     Image,
     Text,
     Placeholder,
+    Carousel,
 ];
 
 export default function install(Vue) {
-    // inside plugins
+    // plugins
     plugins.forEach(item => Vue.use(item));
+    
 
     // self library components
     components.forEach(item => {

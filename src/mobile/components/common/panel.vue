@@ -74,8 +74,8 @@ export default {
 
         .icon {
             font-size: 27px;
-            align-self: center;
             cursor: pointer;
+            align-self: center;
         }
     }
     .tc-common-panel-content {
