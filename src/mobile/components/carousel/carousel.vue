@@ -5,12 +5,14 @@
                 <TCImage :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink"></TCImage>
             </div>
         </div>
+        <div class="tc-carousel-dots">
+            <span :class="['tc-carousel-dot', item ? 'actived' : '']" v-for="(item, index) in dots" :key="index"></span>
+        </div>
     </div>
 </template>
 
 <script type="text/javascript">
 
-import { getComputedStyle } from '../../../utils/utils';
 import TCImage from '../image/image.vue';
 
 export default {
@@ -24,6 +26,7 @@ export default {
             wrapStyles: {
                 width: this.imgInfos.length * 100 + '%',
             },
+            dots: [true].concat((new Array(this.imgInfos.length - 1)).fill(false)),
         };
     },
     props: {
@@ -47,24 +50,11 @@ export default {
         },
     },
     mounted: function() {
-        this.handleCaleWrapStyles();
+
     },
 
     methods: {
-        handleCaleWrapStyles: function() {
-            const that = this;
-            const element = document.getElementById(this.ctcIntanceId).getElementsByClassName('tc-carousel-item')[0];
-
-            if (!element) {
-                return;
-            }
-
-            this.wrapStyles = {
-                width: `${parseInt(getComputedStyle(element, 'width'), 10) * that.imgInfos.length}px`,
-            };
-
-            console.log(this.wrapStyles.width);
-        }
+        
     }
 }
 </script>
@@ -73,12 +63,31 @@ export default {
     .tc-carousel {
         width: 100%;
         overflow: hidden;
+        position: relative;
     }
     .tc-carousel-wrap {
-        // display: flex;
+        display: flex;
     }
     .tc-carousel-item {
 
+    }
+    .tc-carousel-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .tc-carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: #8391a5;
+        margin: 0 3px;
+
+        &.actived {
+            background-color: #ffffff;
+        }
     }
 </style>
 
