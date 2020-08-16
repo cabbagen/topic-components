@@ -1,5 +1,17 @@
 const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+
+// postcss loader
+const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        config: {
+            path: path.resolve(__dirname, 'postcss.config.js'),
+        },
+    },
+};
+
 
 // js loader
 const jsLoaderOptions = {
@@ -17,13 +29,13 @@ const jsLoaderOptions = {
 // less loader
 const lessLoaderOptions = {
     test: /\.less$/,
-    use: ['style-loader', 'css-loader', 'less-loader'],
+    use: ['style-loader', 'css-loader', postcssLoader, 'less-loader'],
 };
 
 // css loader
 const cssLoaderOptions = {
     test: /\.css$/,
-    use: ['style-loader', 'css-loader'],
+    use: ['style-loader', 'css-loader', postcssLoader],
 };
 
 // vue loader
