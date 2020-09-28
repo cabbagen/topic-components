@@ -1,32 +1,30 @@
 <template>
-    <div class="tc-carousel">
-        <div class="tc-carousel-wrap" :style="wrapStyles" :id="ctcIntanceId">
-            <div :key="index" :style="{ width, height }" class="tc-carousel-item" v-for="(item, index) in imgInfos">
-                <TCImage :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink"></TCImage>
-            </div>
-        </div>
-        <div class="tc-carousel-dots">
-            <span :class="['tc-carousel-dot', item ? 'actived' : '']" v-for="(item, index) in dots" :key="index"></span>
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
         </div>
     </div>
 </template>
 
 <script type="text/javascript">
 
-import TCImage from '../image/image.vue';
+import Swiper from 'swiper/swiper-bundle.esm.js';
+
+import 'swiper/swiper-bundle.css';
+
 
 export default {
     name: 'tc-carousel',
     components: {
-        TCImage,
+        // TCImage,
     },
     data: function() {
         return {
-            ctcIntanceId: +new Date(),
-            wrapStyles: {
-                width: this.imgInfos.length * 100 + '%',
-            },
-            dots: [true].concat((new Array(this.imgInfos.length - 1)).fill(false)),
+            
         };
     },
     props: {
@@ -49,45 +47,24 @@ export default {
             },
         },
     },
-    mounted: function() {
-
+    mounted() {
+         this.mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {// 自动滑动
+                delay: 1000, //1秒切换一次
+                disableOnInteraction: false
+            },
+        });
     },
-
     methods: {
-        
     }
 }
 </script>
 
 <style lang="less" scoped>
-    .tc-carousel {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
-    .tc-carousel-wrap {
-        display: flex;
-    }
-    .tc-carousel-item {
-
-    }
-    .tc-carousel-dots {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .tc-carousel-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        background-color: #8391a5;
-        margin: 0 3px;
-
-        &.actived {
-            background-color: #ffffff;
-        }
+    .swiper-container {
+        width: 375px;
+        height: 300px;
     }
 </style>
 

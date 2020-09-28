@@ -2,15 +2,9 @@ import version from './version';
 import groups from './groups';
 import install, { components } from './install';
 
-const ATopic = {
+export default {
     components,
     groups,
     install,
     version,
 };
-
-if (typeof window !== 'undefined') {
-    window.ATopic = ATopic;
-}
-
-export default ATopic;
