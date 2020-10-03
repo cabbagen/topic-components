@@ -1,30 +1,30 @@
 <template>
     <div class="swiper-container">
-        <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div :key="handleMakeMD5(item.imgSource + index.toString())" v-for="(item, index) in images" class="swiper-slide">
+                <tc-image :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink" @handleClick="handleSwiperClick">
+                </tc-image>
+            </div>
         </div>
+        <div class="swiper-pagination"></div>
     </div>
 </template>
 
 <script type="text/javascript">
 
 import Swiper from 'swiper/swiper-bundle.esm.js';
+import TCImage from '../image/image.vue';
+import { makeMD5 } from '../../../utils/utils.js';
 
 import 'swiper/swiper-bundle.css';
-
 
 export default {
     name: 'tc-carousel',
     components: {
-        // TCImage,
+        TCImage,
     },
     data: function() {
         return {
-            
         };
     },
     props: {
@@ -36,35 +36,62 @@ export default {
             type: String,
             default: 'auto',
         },
-        imgInfos: {
+        delay: {
+            type: Number,
+            default: 1500,
+        },
+        images: {
             validator: function(values) {
                 if (!(values instanceof Array)) {
                     return false;
                 }
-                return values.some(function(value) {
-                    return typeof value.imgSource !== 'undefined' || typeof value.imgLink !== 'undefined';
+                return values.every(function(value) {
+                    return typeof value.imgSource !== 'undefined' && typeof value.imgLink !== 'undefined';
                 });
             },
         },
     },
-    mounted() {
-         this.mySwiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: {// 自动滑动
-                delay: 1000, //1秒切换一次
-                disableOnInteraction: false
-            },
-        });
+    mounted: function() {
+        this.initSwipter();
     },
     methods: {
-    }
-}
+        initSwipter: function() {
+            if (this.mySwiper) {
+                
+                return;
+            }
+            this.mySwiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: this.delay || 1500,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    type: 'bullets',
+                    el: '.swiper-pagination',
+                },
+            });
+        },
+
+        handleSwiperClick: function(...args) {
+            this.$emit('handleClick', this.mySwiper, ...args);
+        },
+
+        handleMakeMD5(text) {
+            return makeMD5(text);
+        }
+    },
+    updated: function() {
+        this.mySwiper.destroy();
+        this.mySwiper = null;
+
+        this.$nextTick(() => this.initSwipter());
+    }}
 </script>
 
 <style lang="less" scoped>
     .swiper-container {
-        width: 375px;
-        height: 300px;
+         width: 100%;
     }
 </style>
 

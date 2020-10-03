@@ -1,5 +1,5 @@
 <template>
-    <div class="tc-text-edit tc-component-edit">
+    <div class="tc-component-edit tc-text-edit">
         <div class="tc-inner-component">
             <tc-text
                 :textContent="iStruct.textContent"

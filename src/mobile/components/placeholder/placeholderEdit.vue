@@ -1,5 +1,5 @@
 <template>
-    <div class="tc-placeholder-edit tc-component-edit">
+    <div class="tc-component-edit tc-placeholder-edit">
         <div class="tc-inner-component">
             <tc-placeholder
                 :height="iStruct.height"
