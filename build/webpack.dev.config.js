@@ -6,7 +6,7 @@ module.exports = Object.assign(webpackBaseConfig, {
     devtool: 'eval-source-map',
 
     output: {
-        path: path.resolve(__dirname, '../dist/mobile'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'topic-component.min.js',
         library: 'ATopic',
         libraryTarget: 'umd',

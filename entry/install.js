@@ -1,10 +1,9 @@
 
 import VueClipboard from 'vue-clipboard2';
-
-import Image from '../src/mobile/components/image';
-import Text from '../src/mobile/components/text';
-import Placeholder from '../src/mobile/components/placeholder';
-import Carousel from '../src/mobile/components/carousel';
+import Image from '../src/components/image';
+import Text from '../src/components/text';
+import Placeholder from '../src/components/placeholder';
+import Carousel from '../src/components/carousel';
 
 import 'view-design/dist/styles/iview.css';
 

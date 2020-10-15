@@ -15,15 +15,12 @@ export default {
         handleComponentClick: function() {
             this.visiabled = true;
         },
-
         handleComponentDelete: function() {
             this.$emit('handleComponentDelete', this.componentId);
         },
-
         handleComponentOk: function() {
             this.$emit('handleComponentOk', this.componentId, this.iStruct);
         },
-        
         handleUpdateIStruct: function(data) {
             data && (this.iStruct = data);
         }
@@ -31,6 +28,6 @@ export default {
     watch: {
         data: function(newValue) {
             this.handleUpdateIStruct(newValue);
-        }
+        },
     },
 }

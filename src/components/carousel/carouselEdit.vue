@@ -73,7 +73,7 @@
 
 import { RadioGroup, Radio } from 'view-design';
 import editMinix from '../../minixs/edit.minixs';
-import struct from '../../../struct/carousel';
+import struct from '../../struct/carousel';
 import CustomInput from '../common/custom-input.vue';
 import Panel from '../common/panel.vue';
 

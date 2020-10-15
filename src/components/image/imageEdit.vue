@@ -39,7 +39,7 @@
 <script type="text/javascript">
 import { Input, RadioGroup, Radio } from 'view-design';
 import editMinix from '../../minixs/edit.minixs';
-import struct from '../../../struct/image';
+import struct from '../../struct/image';
 import CustomInput from '../common/custom-input.vue';
 import Panel from '../common/panel.vue';
 

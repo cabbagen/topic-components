@@ -1,3 +1,4 @@
+
 var crypto = require('crypto');
 
 export function getComputedStyle(element, property) {

@@ -14,7 +14,7 @@
 
 import Swiper from 'swiper/swiper-bundle.esm.js';
 import TCImage from '../image/image.vue';
-import { makeMD5 } from '../../../utils/utils.js';
+import { makeMD5 } from '../../utils/utils.js';
 
 import 'swiper/swiper-bundle.css';
 

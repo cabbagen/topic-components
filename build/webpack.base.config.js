@@ -12,7 +12,6 @@ const postcssLoader = {
     },
 };
 
-
 // js loader
 const jsLoaderOptions = {
     test: /\.js$/,
