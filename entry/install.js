@@ -1,11 +1,9 @@
 
 import VueClipboard from 'vue-clipboard2';
 import Image from '../src/components/image';
-import Text from '../src/components/text';
-import Placeholder from '../src/components/placeholder';
+// import Text from '../src/components/text';
+// import Placeholder from '../src/components/placeholder';
 import Carousel from '../src/components/carousel';
-
-import 'view-design/dist/styles/iview.css';
 
 const plugins = [
     VueClipboard,
@@ -13,8 +11,8 @@ const plugins = [
 
 export const components = [
     Image,
-    Text,
-    Placeholder,
+    // Text,
+    // Placeholder,
     Carousel,
 ];
 
@@ -26,7 +24,7 @@ export default function install(Vue) {
     // self library components
     components.forEach(item => {
         Vue.component(item.tagName, item.component);
-        Vue.component(item.tagNameEdit, item.componentEdit);
+        // Vue.component(item.tagNameEdit, item.componentEdit);
     });
 }
 

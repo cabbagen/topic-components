@@ -1,25 +1,18 @@
 <template>
     <div class="tc-custom-input">
-        <i-input v-model="inputText">
-            <template v-if="prefix == 'upload'">
-                <span slot="prepend">
-                    <Icon type="ios-cloud-upload-outline" />
-                </span>
-            </template>
-            <template v-else>
-                <span slot="prepend">
-                    <Icon type="ios-link-outline" />
-                </span>
-            </template>
-            <span slot="append" @click="handleCopy">
-                <Icon type="ios-copy-outline" />
+        <a-input v-model="inputText">
+			<span solt="addonBefore">
+				<a-icon :type="prefix == 'upload' ? 'upload' : 'link'" />
+			</span>
+            <span slot="addonAfter" @click="handleCopy">
+				<a-icon type="copy" />
             </span>
-        </i-input>
+        </a-input>
     </div>
 </template>
 
 <script type="text/javascript">
-import { Icon, Input } from 'view-design';
+import { Icon, Input, message } from 'ant-design-vue';
 
 export default {
     name: 'tc-custom-input',
@@ -29,8 +22,8 @@ export default {
         };
     },
     components: {
-        Icon,
-        'i-input': Input,
+        'a-icon': Icon,
+        'a-input': Input,
     },
     props: {
         prefix: {
@@ -47,9 +40,9 @@ export default {
     methods: {
         handleCopy: function() {
             this.$copyText(this.value).then(() => {
-                this.$Message.success('copy success');
+				message.success('copy success', 2);
             }, (e) => {
-                this.$Message.error(e.message);
+				message.error(e.message, 2);
             });
         }
     },

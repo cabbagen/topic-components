@@ -2,8 +2,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div :key="handleMakeMD5(item.imgSource + index.toString())" v-for="(item, index) in images" class="swiper-slide">
-                <tc-image :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink" @handleClick="handleSwiperClick">
-                </tc-image>
+                <tc-image :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink" @handleClick="handleSwiperClick" />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -57,7 +56,6 @@ export default {
     methods: {
         initSwipter: function() {
             if (this.mySwiper) {
-                
                 return;
             }
             this.mySwiper = new Swiper('.swiper-container', {
@@ -91,7 +89,7 @@ export default {
 
 <style lang="less" scoped>
     .swiper-container {
-         width: 100%;
+        width: 100%;
     }
 </style>
 

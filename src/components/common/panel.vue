@@ -2,23 +2,24 @@
     <div class="tc-common-panel" :style="{ display: value ? 'block' : 'none' }">
         <div class="tc-common-panel-header">
             <span>{{title}}</span>
-            <Icon class="icon" type="ios-close" @click="handlePanelCancel" />
+			<a-icon class="icon" type="close-circle" @click="handlePanelCancel" />
         </div>
         <div class="tc-common-panel-content">
             <slot name="content"></slot>
         </div>
         <div class="tc-common-panel-footer">
             <slot name="footer">
-                <Button @click="handlePanelCancel">取消</Button>
-                <Button type="primary" @click="handlePanelDelete">删除</Button>
-                <Button type="primary" @click="handlePanelOk">确定</Button>
+                <a-button @click="handlePanelCancel">取消</a-button>
+                <a-button type="primary" @click="handlePanelDelete">删除</a-button>
+                <a-button type="primary" @click="handlePanelOk">确定</a-button>
             </slot>
         </div>
     </div>
 </template>
 
 <script type="text/javascript">
-import { Icon, Button } from 'view-design';
+
+import { Icon, Button } from 'ant-design-vue';
 
 export default {
     name: 'tc-common-panel',
@@ -27,8 +28,8 @@ export default {
         };
     },
     components: {
-        Icon,
-        Button
+		'a-icon': Icon,
+		'a-button': Button,
     },
     props: {
         title: {
