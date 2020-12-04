@@ -28,7 +28,17 @@ const jsLoaderOptions = {
 // less loader
 const lessLoaderOptions = {
     test: /\.less$/,
-    use: ['style-loader', 'css-loader', postcssLoader, 'less-loader'],
+	use: [
+		'style-loader',
+		'css-loader',
+		postcssLoader,
+		{
+			loader: 'less-loader',
+			options: {
+				javascriptEnabled: true,
+			}
+		}
+	]
 };
 
 // css loader

@@ -24,7 +24,7 @@ export default function install(Vue) {
     // self library components
     components.forEach(item => {
         Vue.component(item.tagName, item.component);
-        // Vue.component(item.tagNameEdit, item.componentEdit);
+        Vue.component(item.tagNameEdit, item.componentEdit);
     });
 }
 
