@@ -105,6 +105,7 @@ export default {
 	.mixin-dragable() {
 		top: 0;
 		left: 0;
+		cursor: move;
 		z-index: 1000;
 		position: fixed;
 		user-select: none;

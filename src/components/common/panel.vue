@@ -59,11 +59,11 @@ export default {
     .tc-common-panel {
         top: -2px;
         left: 100%;
-        margin-left: 34px;
         position: absolute;
         width: 420px;
         border-radius: 4px;
         background-color: #ffffff;
+		border: 1px solid #dddddd;
     }
     .tc-common-panel-header {
         display: flex;
@@ -74,7 +74,7 @@ export default {
         border-bottom: 1px solid #dddddd;
 
         .icon {
-            font-size: 27px;
+            font-size: 18px;
             cursor: pointer;
             align-self: center;
         }
