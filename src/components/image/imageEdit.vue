@@ -41,6 +41,7 @@ import { Input, Radio } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
 import CustomInput from '../common/custom-input.vue';
 import Panel from '../common/panel.vue';
+import TcImage from './image.vue';
 import struct from '../../struct/image';
 
 export default {
@@ -50,6 +51,7 @@ export default {
 		'a-radio': Radio,
 		'a-input': Input,
 		'a-radio-group': Radio.Group,
+		'tc-image': TcImage,
 		'ct-panel': Panel,
 		'ct-custom-input': CustomInput,
     },
