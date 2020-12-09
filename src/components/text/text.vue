@@ -5,6 +5,7 @@
 </template>
 
 <script type="text/javascript">
+
 export default {
     name: 'tc-text',
     data: function() {
@@ -47,8 +48,8 @@ export default {
         }
     },
     methods: {
-        handleClick: function() {
-            this.$emit('handleClick');
+        handleClick: function(event) {
+            this.$emit('handleClick', { event });
         }
     }
 }

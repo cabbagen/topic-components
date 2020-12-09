@@ -10,7 +10,7 @@
                 @handleClick="handleComponentClick"
             />
         </div>
-		<tc-dragable>
+		<tc-dragable :initPosition="initDragabledPosition">
 			<tc-panel title="图片组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
 				<template v-slot:content>
 					<div class="tc-image-edit-row tc-component-edit-row" v-for="(item, index) in editedFields" :key="index">
@@ -39,6 +39,7 @@
 </template>
 
 <script type="text/javascript">
+
 import { Input, Radio } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
 import TCCustomInput from '../common/custom-input.vue';

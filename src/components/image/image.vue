@@ -37,8 +37,8 @@ export default {
         },
     },
     methods: {
-        handleImgLink: function() {
-            this.$emit('handleClick', this.imgLink, this.isUsedAnchor);
+        handleImgLink: function(event) {
+            this.$emit('handleClick', { event, options: { imgLink: this.imgLink, isUsedAnchor: this.isUsedAnchor } });
         }
     }
 }

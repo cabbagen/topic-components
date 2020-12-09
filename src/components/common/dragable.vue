@@ -23,6 +23,12 @@ export default {
             },
         };
     },
+	props: {
+		initPosition: {
+			type: Array,
+			default: [0 /* translateX */, 0 /* translateY */]
+		},
+	},
     computed: {
         dragableInstanceId: function() {
             return `${this.$options.name}-${this._uid}`;
@@ -55,7 +61,6 @@ export default {
         },
         handleCalcDragedRectWidthAndHeight: function() {
             const element = document.getElementById(this.dragableInstanceId);
-            
             this.willDragedRect = !element ? { width: 0, height: 0, top: 0, left: 0 } : element.getBoundingClientRect();
         },
         handleMouseDown: function(event) {
@@ -98,6 +103,11 @@ export default {
             this.draging = false;
         }
     },
+	watch: {
+		initPosition: function(value) {
+			this.position = [value[0] - 20, value[1] - 20];
+		}
+	}
 }
 </script>
 

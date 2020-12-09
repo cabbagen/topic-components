@@ -2,6 +2,7 @@ export default {
     data: function() {
         return {
             visiabled: false,
+			initDragabledPosition: [0, 0],
         };
     },
     props: {
@@ -12,8 +13,13 @@ export default {
         this.data.id && this.handleUpdateIStruct(this.data);
     },
     methods: {
-        handleComponentClick: function() {
-            this.visiabled = true;
+        handleComponentClick: function({ event }) {
+			const { clientX, clientY } = event;
+			
+			if (!this.visiabled) {
+				this.initDragabledPosition = [clientX, clientY];
+			}
+			this.visiabled = true;
         },
         handleComponentDelete: function() {
             this.$emit('handleComponentDelete', this.componentId);
