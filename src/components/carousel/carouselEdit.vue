@@ -3,88 +3,90 @@
         <div class="tc-inner-component">
             <tc-carousel :images="iStruct.images" @handleClick="handleComponentClick" />
         </div>
-         <Panel title="轮播图组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
-            <template v-slot:content>
-                <div class="tc-carousel-panel-header">
-                    <RadioGroup v-model="currentTab" type="button">
-                        <Radio :key="index" :label="item.value" v-for="(item, index) in tabInfos">{{item.title}}</Radio>
-                    </RadioGroup>
-                </div>
-                <div class="tc-carousel-panel-body-for-base" v-if="currentTab === 'baseSetting'">
-                    <div class="tc-image-edit-row tc-component-edit-row" v-for="(item, index) in basePaneleditedFields" :key="index">
-                        <div class="label">
-                            <span>{{item.title}}</span>
-                        </div>
-                        <div class="label-value">
-                            <template v-if="item.type === 'input'">
-                                <i-input v-model="iStruct[item.field]" />
-                            </template>
-                            <template v-else>
-                                <InputNumber :min="1000" v-model="iStruct[item.field]"></InputNumber>
-                                <span class="tc-carousel-delay-description">{{item.description}}</span>
-                            </template>
+        <tc-dragable :initPosition="initDragabledPosition">
+            <tc-panel title="轮播图组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
+                <template v-slot:content>
+                    <div class="tc-carousel-panel-header">
+                        <a-radio-group v-model="currentTab" button-style="solid">
+                            <a-radio-button :key="index" :value="item.value" v-for="(item, index) in tabInfos">{{item.title}}</a-radio-button>
+                        </a-radio-group>
+                    </div>
+                    <div class="tc-carousel-panel-body-for-base" v-if="currentTab === 'baseSetting'">
+                        <div class="tc-image-edit-row tc-component-edit-row" v-for="(item, index) in basePaneleditedFields" :key="index">
+                            <div class="label">
+                                <span>{{item.title}}</span>
+                            </div>
+                            <div class="label-value">
+                                <template v-if="item.type === 'input'">
+                                    <a-input v-model="iStruct[item.field]" />
+                                </template>
+                                <template v-else>
+                                    <a-input-number :min="1000" v-model="iStruct[item.field]"></a-input-number>
+                                    <span class="tc-carousel-delay-description">{{item.description}}</span>
+                                </template>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tc-carousel-panel-body-for-picture" v-else-if="iStruct.images.length > 0">
-                    <div class="tc-carousel-picture-item" v-for="(item, index) in iStruct.images" :key="index">
-                        <div class="tc-carousel-picture-item-header">
-                            <Icon
-                                v-if="iStruct.images.length > 2"
-                                type="ios-remove-circle-outline"
-                                @click="handleRemoveCarouseImage(index)"
-                            />
-                            <Icon
-                                v-if="iStruct.images.length < 7"
-                                type="ios-add-circle-outline"
-                                @click="handleAddCarouseImgage(index)"
-                            />
-                        </div>
-                        <div class="tc-carousel-picture-item-body">
-                            <div class="tc-image-edit-row tc-component-edit-row">
-                                <div class="label">
-                                    <span>图片链接</span>
-                                </div>
-                                <div class="label-value">
-                                    <i-input v-model="item.imgLink" />
-                                </div>
+                    <div class="tc-carousel-panel-body-for-picture" v-else-if="iStruct.images.length > 0">
+                        <div class="tc-carousel-picture-item" v-for="(item, index) in iStruct.images" :key="index">
+
+                            <div class="tc-carousel-picture-item-header">
+                                <a-icon type="minus-circle" v-if="iStruct.images.length > 2" @click="handleRemoveCarouseImage(index)" />
+                                <a-icon type="plus-circle" v-if="iStruct.images.length < 7" @click="handleAddCarouseImgage(index)" />
                             </div>
-                            <div class="tc-image-edit-row tc-component-edit-row">
-                                <div class="label">
-                                    <span>图片地址</span>
+                            <div class="tc-carousel-picture-item-body">
+                                <div class="tc-image-edit-row tc-component-edit-row">
+                                    <div class="label">
+                                        <span>图片链接</span>
+                                    </div>
+                                    <div class="label-value">
+                                        <a-input v-model="item.imgLink" />
+                                    </div>
                                 </div>
-                                <div class="label-value">
-                                    <custom-input v-model="item.imgSource" prefix="upload" />
+                                <div class="tc-image-edit-row tc-component-edit-row">
+                                    <div class="label">
+                                        <span>图片地址</span>
+                                    </div>
+                                    <div class="label-value">
+                                        <tc-custom-input v-model="item.imgSource" prefix="upload" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tc-carousel-panel-body-for-empty" v-else @click="handleAddCarouseImgage(0)">
-                    <Icon type="ios-add" />
-                    <span class="tc-carousel-img-add">添加图片</span>
-                </div>
-            </template>
-        </Panel>
+                    <div class="tc-carousel-panel-body-for-empty" v-else @click="handleAddCarouseImgage(0)">
+                        <a-icon type="plus" />
+                        <span class="tc-carousel-img-add">添加图片</span>
+                    </div>
+                </template>
+            </tc-panel>
+        </tc-dragable>
     </div>
 </template>
 
 <script type="text/javascript">
 
-import { RadioGroup, Radio } from 'view-design';
+import { Icon, Radio, InputNumber, Input } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
 import struct from '../../struct/carousel';
 import CustomInput from '../common/custom-input.vue';
 import Panel from '../common/panel.vue';
+import Carousel from './carousel.vue';
+import TCDragable from '../common/dragable.vue';
 
 export default {
     name: 'ct-carousel-edit',
     mixins: [editMinix],
     components: {
-        Panel,
-        Radio,
-        RadioGroup,
-        CustomInput,
+        'a-icon': Icon,
+        'a-input': Input,
+        'a-radio-group': Radio.Group,
+        'a-radio-button': Radio.Button,
+        'a-input-number': InputNumber,
+        'tc-custom-input': CustomInput,
+        'tc-panel': Panel,
+        'tc-carousel': Carousel,
+        'tc-dragable': TCDragable,
     },
     data: function() {
         return {
@@ -144,7 +146,7 @@ export default {
         border-bottom: 1px dashed #dddddd;
     }
     .tc-carousel-picture-item-header i {
-        font-size: 20px;
+        font-size: 16px;
         margin-left: 4px;
 
         &:hover {
@@ -165,7 +167,7 @@ export default {
         cursor: pointer;
 
         i {
-            font-size: 28px;
+            font-size: 18px;
             position: relative;
             top: 3px;
             left: 4px;

@@ -20,7 +20,7 @@ import 'swiper/swiper-bundle.css';
 export default {
     name: 'tc-carousel',
     components: {
-        TCImage,
+        'tc-image': TCImage,
     },
     data: function() {
         return {
@@ -71,8 +71,8 @@ export default {
             });
         },
 
-        handleSwiperClick: function(...args) {
-            this.$emit('handleClick', this.mySwiper, ...args);
+        handleSwiperClick: function(params) {
+            this.$emit('handleClick', params);
         },
 
         handleMakeMD5(text) {

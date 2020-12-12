@@ -6,7 +6,6 @@
 
 <script type="text/javascript">
 	
-const bindedFnMap = {};
 const [boardWidth, boardHeight] = [window.innerWidth, window.innerHeight];
 	
 export default {
@@ -21,6 +20,7 @@ export default {
             willDragedRect: {
                 width: 0, height: 0, left: 0, top: 0,
             },
+            bindedFnMap: {},
         };
     },
 	props: {
@@ -50,14 +50,14 @@ export default {
     },
     methods: {
         handleInitBindedFn: function() {
-            Object.assign(bindedFnMap, {
+            Object.assign(this.bindedFnMap, {
                 handleMouseMove: this.handleMouseMove.bind(this),
                 handleMouseUp: this.handleMouseUp.bind(this, false),
             });
         },
         handleMouseEventListener: function(type = 'addEventListener') {
-            document[type] && document[type]('mouseup', bindedFnMap['handleMouseUp'], false);
-            document[type] && document[type]('mousemove', bindedFnMap['handleMouseMove'], false);
+            document[type] && document[type]('mouseup', this.bindedFnMap['handleMouseUp'], false);
+            document[type] && document[type]('mousemove', this.bindedFnMap['handleMouseMove'], false);
         },
         handleCalcDragedRectWidthAndHeight: function() {
             const element = document.getElementById(this.dragableInstanceId);

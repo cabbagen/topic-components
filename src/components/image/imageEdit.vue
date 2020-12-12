@@ -10,7 +10,7 @@
                 @handleClick="handleComponentClick"
             />
         </div>
-		<tc-dragable :initPosition="initDragabledPosition">
+		<tc-dragable :initPosition="initDragabledPosition" key="image-dragable">
 			<tc-panel title="图片组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
 				<template v-slot:content>
 					<div class="tc-image-edit-row tc-component-edit-row" v-for="(item, index) in editedFields" :key="index">

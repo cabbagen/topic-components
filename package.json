@@ -17,6 +17,7 @@
     "swiper": "^6.3.1",
     "vue": "2.6.12",
     "vue-clipboard2": "^0.3.1",
+    "vue-color": "^2.7.1",
     "vue-loader": "^15.8.3",
     "vue-style-loader": "^4.1.2",
     "webpack": "3.11.0"
