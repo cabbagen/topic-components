@@ -1,7 +1,7 @@
 <template>
     <div class="tc-component-edit tc-carousel-edit">
         <div class="tc-inner-component">
-            <tc-carousel :images="iStruct.images" @handleClick="handleComponentClick" />
+            <tc-carousel v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
         <tc-dragable :initPosition="initDragabledPosition">
             <tc-panel title="轮播图组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">

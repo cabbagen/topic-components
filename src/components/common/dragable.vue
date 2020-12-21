@@ -1,5 +1,8 @@
 <template>
-	<div :style="dragableStyles" :id="dragableInstanceId" class="common-drag-container" @mousedown="handleMouseDown">
+	<div :style="dragableStyles" :id="dragableInstanceId" class="common-drag-container" @mousedown="handleMouseDown" v-if="!disable">
+		<slot></slot>
+	</div>
+	<div v-else>
 		<slot></slot>
 	</div>
 </template>
@@ -27,6 +30,10 @@ export default {
 		initPosition: {
 			type: Array,
 			default: [0 /* translateX */, 0 /* translateY */]
+		},
+		disable: {
+			type: Boolean,
+			default: false,
 		},
 	},
     computed: {

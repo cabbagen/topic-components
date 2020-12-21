@@ -4,6 +4,7 @@ import Image from '../src/components/image';
 import Text from '../src/components/text';
 import Placeholder from '../src/components/placeholder';
 import Carousel from '../src/components/carousel';
+import Magic from '../src/components/magic';
 
 Vue.use(VueClipboard);
 
@@ -12,6 +13,7 @@ export const components = [
     Text,
     Placeholder,
     Carousel,
+	Magic,
 ];
 
 export default function install(app) {	

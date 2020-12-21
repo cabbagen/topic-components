@@ -1,14 +1,7 @@
 <template>
     <div class="tc-component-edit tc-image-edit">
         <div class="tc-inner-component">
-            <tc-image
-                :width="iStruct.width"
-                :height="iStruct.height"
-                :imgSource="iStruct.imgSource"
-                :imgLink="iStruct.imgLink"
-                :isUsedAnchor="iStruct.isUsedAnchor"
-                @handleClick="handleComponentClick"
-            />
+            <tc-image v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
 		<tc-dragable :initPosition="initDragabledPosition" key="image-dragable">
 			<tc-panel title="图片组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">

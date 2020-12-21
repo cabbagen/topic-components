@@ -1,7 +1,7 @@
 <template>
     <div class="tc-component-edit tc-placeholder-edit">
         <div class="tc-inner-component">
-            <tc-placeholder :height="iStruct.height" :placeholderBackgroundColor="color" @handleClick="handleComponentClick" />
+            <tc-placeholder v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
         <tc-dragable :initPosition="initDragabledPosition">
             <tc-panel title="占位组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">

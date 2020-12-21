@@ -1,14 +1,7 @@
 <template>
     <div class="tc-component-edit tc-text-edit">
         <div class="tc-inner-component">
-            <tc-text
-                :textColor="color"
-                :textContent="iStruct.textContent"
-                :textFontSize="iStruct.textFontSize"
-                :textLineHeight="iStruct.textLineHeight"
-                :textAlignModel="iStruct.textAlignModel"
-                @handleClick="handleComponentClick"
-            />
+            <tc-text v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
         <tc-dragable :initPosition="initDragabledPosition" key="text-dragable">
             <tc-panel title="文本组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
