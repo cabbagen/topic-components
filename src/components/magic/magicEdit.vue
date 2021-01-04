@@ -4,7 +4,7 @@
 			<tc-magic @handleClick="handleMagicClick" v-bind="iStruct"></tc-magic>
 		</div>
 		<tc-dragable :initPosition="initDragabledPosition" key="magic-dragable">
-			<tc-panel title="组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
+			<tc-panel title="魔方组件编辑" v-model="visiabled" @handlePanelDelete="handleComponentDelete" @handlePanelOk="handleComponentOk">
 				<template v-slot:content>
 					<div class="tc-magic-panel-header">
                         <a-radio-group v-model="currentTab" button-style="solid">
@@ -40,7 +40,7 @@ export default {
 			currentMagicId: -1,
 			currentTab: 'containerSetting',
 			tabInfos: [
-				{ title: '容器配置', value: 'containerSetting' },
+				{ title: '魔方配置', value: 'containerSetting' },
                 { title: '组件配置', value: 'componentSetting' },
 			]
 		}

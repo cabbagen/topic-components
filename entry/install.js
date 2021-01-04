@@ -17,8 +17,6 @@ export const components = [
 ];
 
 export default function install(app) {	
-	app.mixin(Vue.options)
-	
     components.forEach(item => {
         app.component(item.tagName, item.component);
         app.component(item.tagNameEdit, item.componentEdit);
