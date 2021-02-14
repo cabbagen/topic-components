@@ -15,8 +15,14 @@
                                 <a-input v-model="iStruct[item.field]" />
                             </template>
                             <template v-else-if="item.type === 'color'">
-                                <div class="color-section" :style="{ backgroundColor: color }" @click="handleTriggerColorPicker" />
-                                <chrome-picker v-show="visible" class="text-color-picker" :id="`color-picker-${pickerKey}`" v-model="iStruct[item.field]" />
+                                <div class="color-section" :style="{ backgroundColor: iStruct[item.field] }" @click="handleTriggerColorPicker" />
+                                <chrome-picker
+                                    v-show="visible"
+                                    class="text-color-picker"
+                                    @input="handleUpdateColor"
+                                    :value="iStruct[item.field]"
+                                    :id="`color-picker-${pickerKey}`"
+                                />
                             </template>
                             <template v-else>
                                 <a-radio-group v-model="iStruct[item.field]">
@@ -53,14 +59,6 @@ export default {
         'tc-dragable': TCDragable,
         'tc-text': Text,
         'chrome-picker': Chrome,
-    },
-    computed: {
-        color: function() {
-            if (typeof this.iStruct.textColor === 'string') {
-                return this.iStruct.textColor;
-            }
-            return this.iStruct.textColor.hex;
-        },
     },
     data: function() {
         return {
@@ -105,6 +103,9 @@ export default {
             event.stopPropagation();
             this.visible = true;
         },
+        handleUpdateColor: function(color) {
+            this.iStruct.textColor = typeof color === 'string' ? color : color.hex;
+        }
     },
 }
 </script>

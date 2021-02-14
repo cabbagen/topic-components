@@ -9,14 +9,14 @@ import Magic from '../src/components/magic';
 Vue.use(VueClipboard);
 
 export const components = [
-    Image,
     Text,
     Placeholder,
+    Image,
     Carousel,
 	Magic,
 ];
 
-export default function install(app) {	
+export default function install(app) {
     components.forEach(item => {
         app.component(item.tagName, item.component);
         app.component(item.tagNameEdit, item.componentEdit);

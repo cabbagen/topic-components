@@ -1,4 +1,4 @@
 export default {
-    height: '40px',
+    height: '60px',
     placeholderBackgroundColor: '#ffff00',
 };

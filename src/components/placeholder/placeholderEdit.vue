@@ -15,8 +15,14 @@
                                 <a-input v-model="iStruct[item.field]" />
                             </template>
                             <template v-else>
-                                <div class="color-section" :style="{ backgroundColor: color }" @click="handleTriggerColorPicker" />
-                                <chrome-picker v-show="visible" class="placeholder-color-picker" :id="`color-picker-${pickerKey}`" v-model="iStruct[item.field]" />
+                                <div class="color-section" :style="{ backgroundColor: iStruct[item.field] }" @click="handleTriggerColorPicker" />
+                                <chrome-picker
+                                    v-show="visible"
+                                    class="placeholder-color-picker"
+                                    @input="handleUpdateColor"
+                                    :value="iStruct[item.field]"
+                                    :id="`color-picker-${pickerKey}`"
+                                />
                             </template>
                         </div>
                     </div>
@@ -44,14 +50,6 @@ export default {
         'tc-dragable': TCDragable,
         'tc-placeholder': Placeholder,
         'chrome-picker': Chrome,
-    },
-    computed: {
-        color: function() {
-            if (typeof this.iStruct.placeholderBackgroundColor === 'string') {
-                return this.iStruct.placeholderBackgroundColor;
-            }
-            return this.iStruct.placeholderBackgroundColor.hex;
-        },
     },
     data: function() {
         return {
@@ -84,13 +82,16 @@ export default {
             event.stopPropagation();
             this.visible = true;
         },
+        handleUpdateColor: function(color) {
+            this.iStruct.placeholderBackgroundColor = typeof color === 'string' ? color : color.hex;
+        }
     },
 }
 </script>
 
 <style lang="less" scoped>
     @import "../../styles/base.style.less";
-    
+
     .color-section {
         top: 3px;
         width: 80px;

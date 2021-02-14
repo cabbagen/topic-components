@@ -24,7 +24,7 @@ export default {
 	},
 	data: function() {
 		return {
-			
+
 		};
 	},
 	props: {
@@ -86,7 +86,7 @@ export default {
 		display: flex;
 		min-height: 60px;
 		justify-content: space-between;
-		
+
 		&.row {
 			flex-direction: row;
 		}

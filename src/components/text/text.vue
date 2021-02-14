@@ -1,5 +1,5 @@
 <template>
-    <div class="tc-text" :style="styles" @click="handleClick"> 
+    <div class="tc-text" :style="styles" @click="handleClick">
         <span>{{textContent}}</span>
     </div>
 </template>
@@ -15,7 +15,6 @@ export default {
     computed: {
         styles: function() {
             const alignMap = { 1: 'left', 2: 'center', 3: 'right' };
-
             return {
                 color: this.textColor,
                 fontSize: this.textFontSize,
@@ -31,7 +30,7 @@ export default {
             default: '这里是文本内容',
         },
         textColor: {
-            type: String,
+            type: [String, Object],
             default: '#ff00ff',
         },
         textFontSize: {

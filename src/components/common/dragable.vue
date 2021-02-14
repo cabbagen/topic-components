@@ -8,9 +8,9 @@
 </template>
 
 <script type="text/javascript">
-	
+
 const [boardWidth, boardHeight] = [window.innerWidth, window.innerHeight];
-	
+
 export default {
     name: 'common-drag',
     data: function() {
@@ -131,4 +131,3 @@ export default {
 		.mixin-dragable();
 	}
 </style>
-

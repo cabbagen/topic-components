@@ -29,7 +29,6 @@
                     </div>
                     <div class="tc-carousel-panel-body-for-picture" v-else-if="iStruct.images.length > 0">
                         <div class="tc-carousel-picture-item" v-for="(item, index) in iStruct.images" :key="index">
-
                             <div class="tc-carousel-picture-item-header">
                                 <a-icon type="minus-circle" v-if="iStruct.images.length > 2" @click="handleRemoveCarouseImage(index)" />
                                 <a-icon type="plus-circle" v-if="iStruct.images.length < 7" @click="handleAddCarouseImgage(index)" />
@@ -178,4 +177,3 @@ export default {
         }
     }
 </style>
-

@@ -6,8 +6,8 @@ export default {
         };
     },
     props: {
-        componentId: Number,
         data: Object,
+        componentId: Number,
     },
     mounted: function() {
         this.data.id && this.handleUpdateIStruct(this.data);
@@ -15,16 +15,18 @@ export default {
     methods: {
         handleComponentClick: function({ event }) {
 			const { clientX, clientY } = event;
-			
+
 			if (!this.visiabled) {
 				this.initDragabledPosition = [clientX, clientY];
 			}
 			this.visiabled = true;
         },
         handleComponentDelete: function() {
+            this.visiabled = false;
             this.$emit('handleComponentDelete', this.componentId);
         },
         handleComponentOk: function() {
+            this.visiabled = false;
             this.$emit('handleComponentOk', this.componentId, this.iStruct);
         },
         handleUpdateIStruct: function(data) {
@@ -35,5 +37,8 @@ export default {
         data: function(newValue) {
             this.handleUpdateIStruct(newValue);
         },
+        visiabled: function(value) {
+            this.$emit('visibleMonitor', this.componentId, value);
+        }
     },
 }

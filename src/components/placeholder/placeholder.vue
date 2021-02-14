@@ -23,7 +23,7 @@ export default {
             default: '40px',
         },
         placeholderBackgroundColor: {
-            type: String,
+            type: [String, Object],
             default: '#ffff00',
         }
     },
