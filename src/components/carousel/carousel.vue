@@ -13,6 +13,7 @@
 
 import Swiper from 'swiper/swiper-bundle.esm.js';
 import TCImage from '../image/image.vue';
+import imageStruct from '../../struct/image.js';
 import { makeMD5 } from '../../utils/utils.js';
 
 import 'swiper/swiper-bundle.css';
@@ -48,6 +49,9 @@ export default {
                     return typeof value.imgSource !== 'undefined' && typeof value.imgLink !== 'undefined';
                 });
             },
+            default: function() {
+                return [imageStruct, imageStruct];
+            }
         },
     },
     mounted: function() {
@@ -91,6 +95,7 @@ export default {
     .swiper-container {
         width: 100%;
     }
+    .swiper-slide {
+        width: 100% !important;
+    }
 </style>
-
-

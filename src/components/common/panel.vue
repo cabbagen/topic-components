@@ -10,6 +10,7 @@
         <div class="tc-common-panel-footer">
             <slot name="footer">
                 <a-button @click="handlePanelCancel">取消</a-button>
+                <a-button v-if="from === 'magic'" type="primary" @click="handleComponentDeleteMagicChild">删除魔方块</a-button>
                 <a-button type="primary" @click="handlePanelDelete">删除</a-button>
                 <a-button type="primary" @click="handlePanelOk">确定</a-button>
             </slot>
@@ -40,10 +41,17 @@ export default {
             type: Boolean,
             default: false,
         },
+        from: {
+            type: String,
+            default: 'normal',
+        },
     },
     methods: {
         handlePanelCancel: function() {
             this.$emit('input', false);
+        },
+        handleComponentDeleteMagicChild: function() {
+            this.$emit('handleComponentDeleteMagicChild');
         },
         handlePanelDelete: function() {
             this.$emit('handlePanelDelete');

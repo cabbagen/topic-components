@@ -1,17 +1,27 @@
 export default {
-	id: '1',
+	mid: '1',
     direction: 'row',
 	injected: null,
 	selected: false,
+	width: '100%',
+	height: 'auto',
+	margin: '',
+	padding: '',
+	background: '',
 	children: [{
-		id: '1-1',
+		mid: '1-1',
 		type: 'magic',
 		direction: 'row',
 		injected: null,
 		selected: false,
+		width: '100%',
+		height: 'auto',
+		margin: '',
+		padding: '',
+		background: '',
 		children: [],
 	}, {
-		id: '1-2',
+		mid: '1-2',
 		type: 'magic',
 		direction: 'column',
 		injected: {
@@ -21,6 +31,11 @@ export default {
 			},
 		},
 		selected: false,
+		width: '100%',
+		height: 'auto',
+		margin: '',
+		padding: '',
+		background: '',
 		children: [],
 	}]
 };

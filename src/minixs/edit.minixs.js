@@ -7,10 +7,15 @@ export default {
     },
     props: {
         data: Object,
-        componentId: Number,
+        componentId: [Number, String],
+        from: {
+            type: String,
+            default: 'normal'
+        },
     },
     mounted: function() {
-        this.data.id && this.handleUpdateIStruct(this.data);
+        this.visiabled = this.from === 'magic';
+        Object.keys(this.data).length > 0 && this.handleUpdateIStruct(this.data);
     },
     methods: {
         handleComponentClick: function({ event }) {

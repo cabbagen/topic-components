@@ -1,6 +1,6 @@
 <template>
     <div class="tc-component-edit tc-image-edit">
-        <div class="tc-inner-component">
+        <div class="tc-inner-component" v-if="from === 'normal'">
             <tc-image v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
 		<tc-dragable :initPosition="initDragabledPosition" key="image-dragable">

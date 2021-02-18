@@ -1,5 +1,9 @@
 <template>
-    <div :class="['tc-tree', `tc-tree-${id}`, direction, `${selected ? 'selected' : ''}`]" @click="event => handleMagicClick(event, id)">
+    <div
+        :style="magicStyles"
+        :class="['tc-tree', `tc-tree-${mid}`, direction, `${selected ? 'selected' : ''}`]"
+        @click="event => handleMagicClick(event, mid)"
+    >
 		<tc-magic v-for="(item, index) in children" :key="index" v-bind="item" @handleClick="handleOutMagicClick">
 			<component :is="item.injected.type" v-bind="item.injected.props" v-if="item.injected"></component>
 		</tc-magic>
@@ -28,7 +32,7 @@ export default {
 		};
 	},
 	props: {
-		id: {
+		mid: {
 			type: String,
 			default: '1',
 		},
@@ -45,17 +49,37 @@ export default {
 			default: false,
 		},
 		injected: null,
+        width: {
+            type: String,
+            default: '100%',
+        },
+    	height: {
+            type: String,
+            default: 'auto',
+        },
+    	margin: {
+            type: String,
+            default: '',
+        },
+    	padding: {
+            type: String,
+            default: '',
+        },
+    	background: {
+            type: String,
+            default: '',
+        },
 		children: {
 			type: Array,
 			default: () => [{
-				id: '1-1',
+				mid: '1-1',
 				type: 'magic',
 				direction: 'row',
 				selected: false,
 				injected: null,
 				children: [],
 			}, {
-				id: '1-2',
+				mid: '1-2',
 				type: 'magic',
 				direction: 'column',
 				selected: false,
@@ -69,10 +93,21 @@ export default {
 			}]
 		},
 	},
+    computed: {
+        magicStyles: function() {
+            return {
+                width: this.width,
+                height: this.height,
+                margin: this.margin,
+                padding: this.padding,
+                background: this.background,
+            };
+        },
+    },
 	methods: {
-		handleMagicClick: function(event, id) {
+		handleMagicClick: function(event, mid) {
 			event.stopPropagation();
-			this.$emit('handleClick', { event, options: { id } });
+			this.$emit('handleClick', { event, options: { mid } });
 		},
 		handleOutMagicClick: function(options) {
 			this.$emit('handleClick', options);
@@ -84,7 +119,7 @@ export default {
 	.tc-tree {
 		width: 100%;
 		display: flex;
-		min-height: 60px;
+        min-height: 60px;
 		justify-content: space-between;
 
 		&.row {
@@ -96,6 +131,11 @@ export default {
 	}
 	.selected {
 		margin: -1px;
-		border: 1px solid blue;
+		border: 1px solid #2780ef;
+
+        .tc-tree {
+            margin: -1px;
+            border: 1px solid #44f56a;
+        }
 	}
 </style>
