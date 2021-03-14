@@ -1,5 +1,5 @@
 <template>
-    <div class="swiper-container">
+    <div class="swiper-container" :style="{{ height }}">
         <div class="swiper-wrapper">
             <div :key="handleMakeMD5(item.imgSource + index.toString())" v-for="(item, index) in images" class="swiper-slide">
                 <tc-image :width="width" :height="height" :imgSource="item.imgSource" :imgLink="item.imgLink" @handleClick="handleSwiperClick" />
@@ -84,9 +84,10 @@ export default {
         }
     },
     updated: function() {
-        this.mySwiper.destroy();
-        this.mySwiper = null;
-
+        if (this.mySwiper) {
+            this.mySwiper.destroy();
+            this.mySwiper = null;
+        }
         this.$nextTick(() => this.initSwipter());
     }}
 </script>

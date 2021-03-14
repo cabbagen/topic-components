@@ -3,10 +3,10 @@ export default {
     height: 'auto',
     delay: 1500,
     images: [{
-        imgSource: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3635794697,2478707107&fm=15&gp=0.jpg',
+        imgSource: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage109.360doc.com%2FDownloadImg%2F2018%2F04%2F0914%2F129698651_40_20180409023815347.jpg&refer=http%3A%2F%2Fimage109.360doc.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618144897&t=96114aa203c91d32c226d033c37f18da',
         imgLink: '',
     },{
-        imgSource: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601715532017&di=404e18f41716dad2d25c6e10b8273472&imgtype=0&src=http%3A%2F%2Fimg30.360buyimg.com%2FpopWaterMark%2Fjfs%2Ft2134%2F157%2F1234589429%2F116696%2Fdf4552a7%2F564d2da4N2a190da0.jpg',
+        imgSource: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage109.360doc.com%2FDownloadImg%2F2018%2F04%2F0914%2F129698651_16_20180409023813691.jpg&refer=http%3A%2F%2Fimage109.360doc.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618144912&t=c4cc928734d8c04d7f7b5a3415d2b161',
         imgLink: '',
     }],
 }
