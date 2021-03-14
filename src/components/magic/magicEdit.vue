@@ -1,10 +1,10 @@
 <template>
     <div class="tc-component-edit tc-magic-edit">
-		<div class="tc-inner-component">
-			<tc-magic @handleClick="handleMagicClick" v-bind="iStruct"></tc-magic>
-		</div>
-		<tc-dragable :initPosition="initDragabledPosition" key="magic-dragable">
-			<tc-panel
+        <div class="tc-inner-component">
+            <tc-magic @handleClick="handleMagicClick" v-bind="iStruct"></tc-magic>
+        </div>
+        <tc-dragable :initPosition="initDragabledPosition" key="magic-dragable">
+            <tc-panel
                 from="magic"
                 title="魔方组件编辑"
                 v-model="visiabled"
@@ -13,7 +13,7 @@
                 @handlePanelDelete="handleComponentDelete"
                 @handleComponentDeleteMagicChild="handleComponentDeleteMagicChild"
             >
-				<template v-slot:content>
+                <template v-slot:content>
                     <div class="tc-magic-panel-body" v-if="selectedMagicItem">
                         <div class="tc-magic-panel-body-row" v-for="(item, index) in editedFields" :key="index">
                             <div class="tc-magic-panel-body-row-field">
@@ -48,9 +48,9 @@
                             </div>
                         </div>
                     </div>
-				</template>
-			</tc-panel>
-		</tc-dragable>
+                </template>
+            </tc-panel>
+        </tc-dragable>
         <component
             from="magic"
             v-if="injectEditing"
@@ -61,7 +61,7 @@
             @handleComponentOk="handleInjectComponentOk"
             @handleComponentDelete="handleInjectComponentDelete"
         />
-	</div>
+    </div>
 </template>
 
 <script type="text/javascript">
@@ -83,23 +83,23 @@ const defaultMagicItem = {
 
 export default {
     name: 'tc-magic-edit',
-	mixins: [editMinix],
-	components: {
-		'a-radio-group': Radio.Group,
+    mixins: [editMinix],
+    components: {
+        'a-radio-group': Radio.Group,
         'a-radio-button': Radio.Button,
         'a-radio': Radio,
-		'tc-magic': TCMagic,
-		'tc-panel': TCPanel,
-		'tc-dragable': TCDragable,
+        'tc-magic': TCMagic,
+        'tc-panel': TCPanel,
+        'tc-dragable': TCDragable,
         'a-input-number': InputNumber,
         'a-input': Input,
         'a-select': Select,
         'a-select-option': Select.Option,
-	},
-	data: function() {
-		return {
+    },
+    data: function() {
+        return {
             mid: '',
-			iStruct: Object.assign({}, struct),
+            iStruct: Object.assign({}, struct),
             injectEditing: false,
             allowInjectable: [
                 { type: 'tc-image', title: '图片组件' },
@@ -156,8 +156,8 @@ export default {
                 title: '注入组件',
                 field: 'injected',
             }],
-		}
-	},
+        }
+    },
     computed: {
         selectedMagicItem: function() {
             const result = { current: null };
@@ -166,7 +166,7 @@ export default {
             return result.current;
         },
     },
-	methods: {
+    methods: {
         handleFincSelectMagicItem(tree, mid, result) {
             if (tree.mid === mid) {
                 result.current = tree;
@@ -178,14 +178,14 @@ export default {
                 tree.children.forEach(item => this.handleFincSelectMagicItem(item, mid, result));
             }
         },
-		handleMagicClick: function(data) {
+        handleMagicClick: function(data) {
             this.mid = data.options.mid;
             this.handleComponentClick(data);
 
             this.handleUpdateMagicItem(data.options.mid, function(isCurrent, item) {
                 return Object.assign({}, item, { selected: isCurrent });
             });
-		},
+        },
         handleUpdateMagicItem(mid, updator) {
             if (this.iStruct.mid === mid) {
                 this.iStruct = updator(true, Object.assign({}, this.iStruct));
@@ -255,7 +255,7 @@ export default {
                 });
             });
         },
-	}
+    }
 }
 </script>
 <style lang="less" scoped>

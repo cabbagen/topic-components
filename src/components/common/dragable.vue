@@ -1,10 +1,10 @@
 <template>
-	<div :style="dragableStyles" :id="dragableInstanceId" class="common-drag-container" @mousedown="handleMouseDown" v-if="!disable">
-		<slot></slot>
-	</div>
-	<div v-else>
-		<slot></slot>
-	</div>
+    <div :style="dragableStyles" :id="dragableInstanceId" class="common-drag-container" @mousedown="handleMouseDown" v-if="!disable">
+        <slot></slot>
+    </div>
+    <div v-else>
+        <slot></slot>
+    </div>
 </template>
 
 <script type="text/javascript">
@@ -26,16 +26,16 @@ export default {
             bindedFnMap: {},
         };
     },
-	props: {
-		initPosition: {
-			type: Array,
-			default: [0 /* translateX */, 0 /* translateY */]
-		},
-		disable: {
-			type: Boolean,
-			default: false,
-		},
-	},
+    props: {
+        initPosition: {
+            type: Array,
+            default: [0 /* translateX */, 0 /* translateY */]
+        },
+        disable: {
+            type: Boolean,
+            default: false,
+        },
+    },
     computed: {
         dragableInstanceId: function() {
             return `${this.$options.name}-${this._uid}`;
@@ -110,24 +110,24 @@ export default {
             this.draging = false;
         }
     },
-	watch: {
-		initPosition: function(value) {
-			this.position = [value[0] - 20, value[1] - 20];
-		}
-	}
+    watch: {
+        initPosition: function(value) {
+            this.position = [value[0] - 20, value[1] - 20];
+        }
+    }
 }
 </script>
 
 <style lang="less">
-	.mixin-dragable() {
-		top: 0;
-		left: 0;
-		cursor: move;
-		z-index: 1000;
-		position: fixed;
-		user-select: none;
-	}
-	.common-drag-container {
-		.mixin-dragable();
-	}
+    .mixin-dragable() {
+        top: 0;
+        left: 0;
+        cursor: move;
+        z-index: 1000;
+        position: fixed;
+        user-select: none;
+    }
+    .common-drag-container {
+        .mixin-dragable();
+    }
 </style>

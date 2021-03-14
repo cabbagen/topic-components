@@ -1,11 +1,11 @@
 <template>
     <div class="tc-custom-input">
         <a-input v-model="inputText">
-			<span solt="addonBefore">
-				<a-icon :type="prefix == 'upload' ? 'upload' : 'link'" />
-			</span>
+            <span solt="addonBefore">
+                <a-icon :type="prefix == 'upload' ? 'upload' : 'link'" />
+            </span>
             <span slot="addonAfter" @click="handleCopy">
-				<a-icon type="copy" />
+                <a-icon type="copy" />
             </span>
         </a-input>
     </div>
@@ -40,9 +40,9 @@ export default {
     methods: {
         handleCopy: function() {
             this.$copyText(this.value).then(() => {
-				message.success('copy success', 2);
+                message.success('copy success', 2);
             }, (e) => {
-				message.error(e.message, 2);
+                message.error(e.message, 2);
             });
         }
     },

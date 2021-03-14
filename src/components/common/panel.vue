@@ -2,7 +2,7 @@
     <div class="tc-common-panel" :style="{ display: value ? 'block' : 'none' }">
         <div class="tc-common-panel-header">
             <span>{{title}}</span>
-			<a-icon class="icon" type="close-circle" @click="handlePanelCancel" />
+            <a-icon class="icon" type="close-circle" @click="handlePanelCancel" />
         </div>
         <div class="tc-common-panel-content">
             <slot name="content"></slot>
@@ -29,8 +29,8 @@ export default {
         };
     },
     components: {
-		'a-icon': Icon,
-		'a-button': Button,
+        'a-icon': Icon,
+        'a-button': Button,
     },
     props: {
         title: {
@@ -71,7 +71,7 @@ export default {
         width: 420px;
         border-radius: 4px;
         background-color: #ffffff;
-		border: 1px solid #dddddd;
+        border: 1px solid #dddddd;
     }
     .tc-common-panel-header {
         display: flex;
