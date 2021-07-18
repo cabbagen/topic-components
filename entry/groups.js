@@ -1,5 +1,5 @@
 const groups = [{
-    type: 'normal',
+    type: 'base',
     title: '基础组件',
     components: [
         { type: 'text', title: '文本组件' },
@@ -8,6 +8,12 @@ const groups = [{
         { type: 'carousel', title: '轮播图' },
         { type: 'magic', title: '魔方组件' },
     ],
-}];
+}/*, {
+    type: 'business',
+    title: '业务组件',
+    components: [
+        { type: 'navigation', title: '导航组件' },
+    ],
+}*/];
 
 export default groups;

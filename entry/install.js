@@ -1,10 +1,16 @@
 import Vue from 'vue';
 import VueClipboard from 'vue-clipboard2';
-import Image from '../src/components/image';
-import Text from '../src/components/text';
-import Placeholder from '../src/components/placeholder';
-import Carousel from '../src/components/carousel';
-import Magic from '../src/components/magic';
+
+// 基础组件
+import Text from '../src/packages/text';
+import Image from '../src/packages/image';
+import Magic from '../src/packages/magic';
+import Placeholder from '../src/packages/placeholder';
+
+// 业务组件
+import Carousel from '../src/packages/carousel';
+import Navigation from '../src/packages/navigation';
+
 
 Vue.use(VueClipboard);
 
@@ -14,6 +20,7 @@ export const components = [
     Image,
     Carousel,
 	Magic,
+    // Navigation,
 ];
 
 export default function install(app) {

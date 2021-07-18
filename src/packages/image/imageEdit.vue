@@ -35,9 +35,9 @@
 
 import { Input, Radio } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
-import TCCustomInput from '../common/custom-input.vue';
-import TCPanel from '../common/panel.vue';
-import TCDragable from '../common/dragable.vue';
+import TCCustomInput from '../../common/custom-input.vue';
+import TCPanel from '../../common/panel.vue';
+import TCDragable from '../../common/dragable.vue';
 import TCImage from './image.vue';
 import struct from '../../struct/image';
 

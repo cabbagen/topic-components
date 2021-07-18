@@ -68,10 +68,10 @@
 import { Icon, Radio, InputNumber, Input } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
 import struct from '../../struct/carousel';
-import CustomInput from '../common/custom-input.vue';
-import Panel from '../common/panel.vue';
+import CustomInput from '../../common/custom-input.vue';
+import Panel from '../../common/panel.vue';
 import Carousel from './carousel.vue';
-import TCDragable from '../common/dragable.vue';
+import TCDragable from '../../common/dragable.vue';
 
 export default {
     name: 'ct-carousel-edit',

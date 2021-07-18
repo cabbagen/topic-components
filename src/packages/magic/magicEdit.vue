@@ -69,8 +69,8 @@
 import { Radio, InputNumber, Input, Select } from 'ant-design-vue';
 import editMinix from '../../minixs/edit.minixs';
 import TCMagic from './magic.vue';
-import TCPanel from '../common/panel.vue';
-import TCDragable from '../common/dragable.vue';
+import TCPanel from '../../common/panel.vue';
+import TCDragable from '../../common/dragable.vue';
 import struct from '../../struct/magic';
 
 const defaultMagicItem = {
