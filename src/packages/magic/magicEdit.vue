@@ -1,7 +1,7 @@
 <template>
     <div class="tc-component-edit tc-magic-edit">
         <div class="tc-inner-component">
-            <tc-magic @handleClick="handleMagicClick" v-bind="iStruct"></tc-magic>
+            <tc-magic @handleClick="handleMagicClick" v-bind="iStruct" inner></tc-magic>
         </div>
         <tc-dragable :initPosition="initDragabledPosition" key="magic-dragable">
             <tc-panel
@@ -258,7 +258,7 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
     .tc-magic-panel-modal {
         width: 560px;
     }

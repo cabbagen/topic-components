@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackBaseConfig = require('./webpack.base.config');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const ExtractCSS = new ExtractTextPlugin('topic-comonent.css');
+const ExtractCSS = new ExtractTextPlugin('topic-component.css');
 
 module.exports = Object.assign(webpackBaseConfig, {
     output: {

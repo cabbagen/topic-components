@@ -44,7 +44,7 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .tc-navigation {
         width: 100%;
         height: .5rem;

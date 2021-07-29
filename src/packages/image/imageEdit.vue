@@ -68,6 +68,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     @import "../../styles/base.style.less";
 </style>

@@ -15,10 +15,10 @@
                                 <a-input v-model="iStruct[item.field]" />
                             </template>
                             <template v-else-if="item.type === 'color'">
-                                <div class="color-section" :style="{ backgroundColor: iStruct[item.field] }" @click="handleTriggerColorPicker" />
+                                <div class="tc-color-section" :style="{ backgroundColor: iStruct[item.field] }" @click="handleTriggerColorPicker" />
                                 <chrome-picker
                                     v-show="visible"
-                                    class="text-color-picker"
+                                    class="tc-text-color-picker"
                                     @input="handleUpdateColor"
                                     :value="iStruct[item.field]"
                                     :id="`color-picker-${pickerKey}`"
@@ -110,10 +110,10 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     @import "../../styles/base.style.less";
 
-    .color-section {
+    .tc-color-section {
         top: 3px;
         width: 80px;
         height: 28px;
@@ -121,7 +121,7 @@ export default {
         position: relative;
         cursor: pointer;
     }
-    .text-color-picker {
+    .tc-text-color-picker {
         top: 120;
         z-index: 4;
         left: 180px;

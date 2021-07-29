@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .tc-image {
         width: 100%;
     }

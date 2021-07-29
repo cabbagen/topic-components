@@ -92,7 +92,7 @@ export default {
     }}
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .swiper-container {
         width: 100%;
     }

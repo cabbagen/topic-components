@@ -1,10 +1,10 @@
 <template>
     <div
         :style="magicStyles"
-        :class="['tc-tree', `tc-tree-${mid}`, direction, `${selected ? 'selected' : ''}`]"
+        :class="['tc-tree', `tc-tree-${mid}`, direction, `${inner && selected ? 'selected' : ''}`]"
         @click="event => handleMagicClick(event, mid)"
     >
-        <tc-magic v-for="(item, index) in children" :key="index" v-bind="item" @handleClick="handleOutMagicClick">
+        <tc-magic v-for="(item, index) in children" :key="index" v-bind="item" @handleClick="handleOutMagicClick" :inner="inner">
             <component :is="item.injected.type" v-bind="item.injected.props" v-if="item.injected"></component>
         </tc-magic>
         <slot></slot>
@@ -92,6 +92,10 @@ export default {
                 children: [],
             }]
         },
+        inner: {
+            type: Boolean,
+            default: false,
+        }
     },
     computed: {
         magicStyles: function() {
@@ -115,7 +119,7 @@ export default {
     },
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
     .tc-tree {
         width: 100%;
         display: flex;
@@ -129,7 +133,7 @@ export default {
             flex-direction: column;
         }
     }
-    .selected {
+    .tc-tree.selected {
         margin: -1px;
         border: 1px solid #2780ef;
 

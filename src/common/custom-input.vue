@@ -27,7 +27,7 @@ export default {
     },
     props: {
         prefix: {
-            type: String,	
+            type: String,
         },
         value: {
             type: String,
@@ -57,6 +57,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 
 </style>

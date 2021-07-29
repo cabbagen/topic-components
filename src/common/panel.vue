@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .tc-common-panel {
         top: -2px;
         left: 100%;

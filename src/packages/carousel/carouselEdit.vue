@@ -121,7 +121,7 @@ export default {
 
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     @import "../../styles/base.style.less";
 
     .tc-carousel-panel-header {

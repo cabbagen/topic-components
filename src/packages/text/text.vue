@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .tc-text {
         width: 100%;
         background-color: #ffffff;
