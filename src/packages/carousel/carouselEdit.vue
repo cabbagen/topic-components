@@ -126,6 +126,7 @@ export default {
 
     .tc-carousel-panel-header {
         display: flex;
+        margin-bottom: 10px;
         justify-content: center;
     }
     .tc-carousel-delay-description {
@@ -140,13 +141,15 @@ export default {
         overflow-y: scroll;
     }
     .tc-carousel-picture-item-header {
-        line-height: 30px;
-        text-align: right;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         border-bottom: 1px dashed #dddddd;
     }
     .tc-carousel-picture-item-header i {
         font-size: 16px;
-        margin-left: 4px;
+        margin-left: 8px;
 
         &:hover {
             color: #2d8cf0;

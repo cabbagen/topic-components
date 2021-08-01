@@ -16,7 +16,6 @@ export default {
     data: function() {
         return {
             draging: false,
-            prefix: this.$options.name,
             position: [0 /* translateX */, 0 /* translateY */],
             dragedInitPosition: [0 /* translateX */, 0 /* translateY */],
 

@@ -9,6 +9,6 @@ var app = new Vue({
 		// imgInfo: window.ATopic.default.components
     },
 	methods: {
-		
+
 	}
 });

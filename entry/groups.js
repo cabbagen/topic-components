@@ -8,12 +8,12 @@ const groups = [{
         { type: 'carousel', title: '轮播图' },
         { type: 'magic', title: '魔方组件' },
     ],
-}/*, {
+}, {
     type: 'business',
     title: '业务组件',
     components: [
         { type: 'navigation', title: '导航组件' },
     ],
-}*/];
+}];
 
 export default groups;

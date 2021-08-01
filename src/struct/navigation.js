@@ -1,11 +1,9 @@
 export default {
     title: '导航标题',
-    menus: [{
-        title: '导航菜单一',
-        link: ''
-    }, {
-        title: '导航菜单二',
-        link: '',
-    }],
-    searchLink: '',
+    hasBack: 1,
+    menus: [
+        { title: '首页', link: '', icon: 'iconshouye' },
+        { title: '分类页', link: '', icon: 'icongouwuche' },
+        { title: '个人中心', link: '', icon: 'iconsousuo' },
+    ],
 }

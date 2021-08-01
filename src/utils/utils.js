@@ -1,5 +1,5 @@
 
-var crypto = require('crypto');
+const crypto = require('crypto');
 
 export function getComputedStyle(element, property) {
     if (typeof window.getComputedStyle !== 'undefined') {

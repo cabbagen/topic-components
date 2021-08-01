@@ -1,0 +1,14 @@
+* {
+    margin: 0; padding: 0;
+}
+#root {
+    overflow: hidden;
+}
+html {
+    font-size: 26.67vw;
+}
+.mobile {
+    width: 375px;
+    height: 667px;
+    background-color: #f7f7f7;
+}
