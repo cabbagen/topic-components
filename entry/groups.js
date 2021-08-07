@@ -7,12 +7,13 @@ const groups = [{
         { type: 'image', title: '图片组件' },
         { type: 'carousel', title: '轮播图' },
         { type: 'magic', title: '魔方组件' },
+        { type: 'navigation', title: '导航组件' },
+        { type: 'category', title: '分类组件' },
     ],
 }, {
     type: 'business',
     title: '业务组件',
     components: [
-        { type: 'navigation', title: '导航组件' },
     ],
 }];
 

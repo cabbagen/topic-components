@@ -5,11 +5,13 @@ import VueClipboard from 'vue-clipboard2';
 import Text from '../src/packages/text';
 import Image from '../src/packages/image';
 import Magic from '../src/packages/magic';
+import Carousel from '../src/packages/carousel';
+import Catetory from '../src/packages/category';
+import Navigation from '../src/packages/navigation';
 import Placeholder from '../src/packages/placeholder';
 
 // 业务组件
-import Carousel from '../src/packages/carousel';
-import Navigation from '../src/packages/navigation';
+
 
 // 额外的方法
 import { handleRegistTopicGlobalProperty, handleRegistTopicGlobalProperties, getRegistedTopicGlobalProperty } from '../src/utils/hooks';
@@ -21,17 +23,19 @@ Vue.use(VueClipboard);
 
 export const components = [
     Text,
-    Placeholder,
     Image,
-    Carousel,
 	Magic,
+    Carousel,
+    Catetory,
     Navigation,
+    Placeholder,
 ];
 
 export default function install(app, options) {
     if (app.getRegistedTopicGlobalProperty && app.handleRegistTopicGlobalProperty) {
         return;
     }
+
     components.forEach(item => {
         app.component(item.tagName, item.component);
         app.component(item.tagNameEdit, item.componentEdit);

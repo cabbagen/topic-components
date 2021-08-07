@@ -1,5 +1,5 @@
 <template>
-    <div class="tc-component-edit tc-image-edit">
+    <div class="tc-component-edit tc-navigation-edit">
         <div class="tc-inner-component" v-if="from === 'normal'">
             <tc-navigation v-bind="iStruct" @handleClick="handleComponentClick" />
         </div>
