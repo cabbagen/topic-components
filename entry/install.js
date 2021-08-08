@@ -24,7 +24,7 @@ Vue.use(VueClipboard);
 export const components = [
     Text,
     Image,
-	Magic,
+    Magic,
     Carousel,
     Catetory,
     Navigation,
