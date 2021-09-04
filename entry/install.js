@@ -11,7 +11,7 @@ import Navigation from '../src/packages/navigation';
 import Placeholder from '../src/packages/placeholder';
 
 // 业务组件
-
+import Login from '../src/packages/login';
 
 // 额外的方法
 import { handleRegistTopicGlobalProperty, handleRegistTopicGlobalProperties, getRegistedTopicGlobalProperty } from '../src/utils/hooks';
@@ -22,6 +22,7 @@ import { Bootstrap } from '../src/utils/bootstrap';
 Vue.use(VueClipboard);
 
 export const components = [
+    // 基础组件
     Text,
     Image,
     Magic,
@@ -29,6 +30,9 @@ export const components = [
     Catetory,
     Navigation,
     Placeholder,
+
+    // 业务组件
+    Login,
 ];
 
 export default function install(app, options) {

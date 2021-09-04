@@ -14,6 +14,7 @@ const groups = [{
     type: 'business',
     title: '业务组件',
     components: [
+        { type: 'login', title: '登陆组件' },
     ],
 }];
 
