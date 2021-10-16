@@ -1,5 +1,6 @@
 
 export const upload = Symbol.for('inner-upload');
+export const request = Symbol.for('fetch-request');
 
 export const iconfont = Symbol.for('iconfont-resource');
 
@@ -14,6 +15,17 @@ const defaultGlobalProperties = {
             },
         };
     },
+    [request]: async function(url, method, data) {
+        const response = await fetch(url, {
+            method,
+            body: JSON.stringify(data),
+            headers: {
+                'token': window.sessionStorage.getItem('token') || '',
+                'Content-Type': 'application/json',
+            },
+        });
+        return response.json();
+    }
 };
 
 const instance = Object.assign({}, defaultGlobalProperties);

@@ -1,5 +1,7 @@
 {
     "plugins": [
-		["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", style: true }]
+		["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", style: true }, "ant-design-vue"],
+        ["import", { "libraryName": "vant", "libraryDirectory": "es", style: true }, "vant"],
+        "@babel/plugin-transform-runtime"
 	]
 }

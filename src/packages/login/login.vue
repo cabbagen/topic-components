@@ -1,5 +1,5 @@
 <template>
-    <div class="tc-login">
+    <div class="tc-login" @click="handleClick">
         <div class="tc-login-logo">
             <img :src="logo" alt="logo" />
         </div>
@@ -18,6 +18,9 @@
 </template>
 
 <script type="text/javascript">
+import { Toast } from 'vant';
+import { getQuery, linkTo } from '../../utils/utils';
+import { getRegistedTopicGlobalProperty, request } from '../../utils/hooks';
 
 export default {
     name: 'tc-login',
@@ -31,7 +34,6 @@ export default {
         disabled: function() {
             return !this.username || !this.password ? 'disabled' : '';
         },
-
     },
     props: {
         logo: {
@@ -41,14 +43,32 @@ export default {
         theme: {
             type: String,
             default: '#3b66fc',
-        }
+        },
+        model: {
+            type: String,
+            default: 'tcm-login',
+        },
     },
     methods: {
-        handleSubmitLogin: function() {
-            if (this.disabled) {
+        handleSubmitLogin: function(event) {
+            event.stopPropagation();
+
+            if (this.disabled || !getRegistedTopicGlobalProperty(request)) {
                 return;
             }
-            console.log(this.username, this.password);
+
+            const params = { username: this.username, password: this.password };
+
+            getRegistedTopicGlobalProperty(request)(`/tc-proxy/${this.model}/login`, 'post', params).then((result) => {
+                if (result.status !== 200) {
+                    Toast.fail(result.message || '系统繁忙');
+                    return;
+                }
+                linkTo(getQuery().returnUrl || '/');
+            });
+        },
+        handleClick: function(event) {
+            this.$emit('handleClick', { event, options: {} });
         }
     }
 };
