@@ -12,6 +12,7 @@ import Placeholder from '../src/packages/placeholder';
 
 // 业务组件
 import Login from '../src/packages/login';
+import Classification from '../src/packages/classification'
 
 // 额外的方法
 import { handleRegistTopicGlobalProperty, handleRegistTopicGlobalProperties, getRegistedTopicGlobalProperty } from '../src/utils/hooks';
@@ -33,6 +34,7 @@ export const components = [
 
     // 业务组件
     Login,
+    Classification,
 ];
 
 export default function install(app, options) {

@@ -2,7 +2,9 @@
     margin: 0; padding: 0;
 }
 #root {
+    height: 100%;
     overflow: hidden;
+    background-color: #CCCCCC;
 }
 html {
     font-size: 100px;

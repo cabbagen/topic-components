@@ -11,7 +11,7 @@
                 <input type="password" v-model="password" name="password" placeholder="请输入用户密码" />
             </div>
             <div :class="['tc-login-form-btn', disabled]">
-                <button type="button" :style="{ backgroundColor: theme }" @click="handleSubmitLogin">登录 / 注册</button>
+                <button type="button" @click="handleSubmitLogin">登录 / 注册</button>
             </div>
         </form>
     </div>
@@ -39,10 +39,6 @@ export default {
         logo: {
             type: String,
             default: 'https://file.iviewui.com/dev-dist/5fbd2906a125dd0ba4fbd502263ca524.png',
-        },
-        theme: {
-            type: String,
-            default: '#3b66fc',
         },
         model: {
             type: String,
@@ -133,5 +129,6 @@ export default {
     outline: none;
     color: #ffffff;
     display: inline-block;
+    background-color: #3b66fc;
 }
 </style>
