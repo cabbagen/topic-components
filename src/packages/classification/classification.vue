@@ -70,7 +70,7 @@ export default {
     },
     methods: {
         handleFetchAllClassifications: function() {
-            getRegistedTopicGlobalProperty(request)('http://localhost:8787/category/level?deep=1', 'get').then((result) => {
+            getRegistedTopicGlobalProperty(request)('http://localhost:8787/m/category/level?deep=1', 'get').then((result) => {
                 this.categories = result.data.map((item, index) => {
                     return Object.assign({}, item, { selected: index === 0 });
                 });
