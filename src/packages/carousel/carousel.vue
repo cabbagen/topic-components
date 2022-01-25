@@ -96,7 +96,11 @@ export default {
     .swiper-container {
         width: 100%;
     }
+    .swiper-wrapper {
+        height: auto !important;
+    }
     .swiper-slide {
         width: 100% !important;
+        height: auto !important;
     }
 </style>
