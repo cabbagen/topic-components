@@ -12,5 +12,7 @@ html {
 .mobile {
     width: 375px;
     height: 667px;
+    position: relative;
+    overflow: scroll;
     background-color: #f7f7f7;
 }

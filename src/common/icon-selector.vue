@@ -1,10 +1,10 @@
 <template>
     <div class="tc-common-icon-selector">
-        <a-select :value="value" style="width: 312px" @change="handleSelectChange" placeholder="请选择小图标">
-            <a-select-option v-for="item in iconfontResources" :key="`icon${item.font_class}`">
+        <a-select :value="value" style="width: 100%" @change="handleSelectChange" placeholder="请选择小图标">
+            <a-select-option v-for="item in iconfontResources" :key="item.icon">
                 <span>
-                    <i :class="['tc-selector-iconfont', 'iconfont', `icon${item.font_class}`]"></i>
-                    <span>{{item.name}}</span>
+                    <svg-icon :icon="item.icon" class="tc-selector-iconfont" />
+                    <span>{{item.icon}}</span>
                 </span>
             </a-select-option>
         </a-select>
@@ -14,6 +14,8 @@
 <script type="text/javascript">
 import { Select } from 'ant-design-vue';
 import { handleRegistTopicGlobalProperty, getRegistedTopicGlobalProperty, iconfont } from '../utils/hooks';
+
+import SvgIcon from './svg-icon.vue';
 
 export default {
     name: 'common-icon-selector',
@@ -31,6 +33,7 @@ export default {
     components: {
         'a-select': Select,
         'a-select-option': Select.Option,
+        'svg-icon': SvgIcon,
     },
     mounted: function() {
         if (getRegistedTopicGlobalProperty(iconfont)) {
@@ -41,7 +44,7 @@ export default {
     },
     methods: {
         fetchTopicIconFontPrevResources: function() {
-            window.fetch('//at.alicdn.com/t/font_1410717_ieijunpuxsq.json?spm=a313x.7781069.1998910419.36&file=font_1410717_ieijunpuxsq.json')
+            window.fetch('http://localhost:7001/static/icons/icons.setting.json')
                 .then(response => response.json())
                 .then(result => {
                     this.iconfontResources = result.glyphs;

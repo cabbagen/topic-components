@@ -85,7 +85,7 @@ export default {
     },
     updated: function() {
         if (this.mySwiper) {
-            this.mySwiper.destroy();
+            this.mySwiper.destroy && this.mySwiper.destroy();
             this.mySwiper = null;
         }
         this.$nextTick(() => this.initSwipter());

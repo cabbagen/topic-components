@@ -7,10 +7,10 @@ export class Bootstrap {
     }
 
     loadTopicIconFontResources() {
-        const element = document.createElement('link');
+        const element = document.createElement('script');
 
-        element.rel = 'stylesheet';
-        element.href = '//at.alicdn.com/t/font_1410717_ieijunpuxsq.css';
+        element.type = 'text/javascript';
+        element.src = 'http://localhost:7001/static/icons/icons.boudle.js';
 
         document.head.appendChild(element);
     }

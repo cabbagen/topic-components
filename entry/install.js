@@ -3,6 +3,7 @@ import VueClipboard from 'vue-clipboard2';
 
 // 基础组件
 import Text from '../src/packages/text';
+import GoTop from '../src/packages/go-top';
 import Image from '../src/packages/image';
 import Magic from '../src/packages/magic';
 import Carousel from '../src/packages/carousel';
@@ -26,6 +27,7 @@ Vue.use(VueClipboard);
 export const components = [
     // 基础组件
     Text,
+    GoTop,
     Image,
     Magic,
     Carousel,

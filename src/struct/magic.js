@@ -27,7 +27,7 @@ export default {
         injected: {
             type: 'tc-image',
             props: {
-                imgSource: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3635794697,2478707107&fm=15&gp=0.jpg',
+                imgSource: 'https://m.360buyimg.com/mobilecms/s700x280_jfs/t1/167727/16/12273/102253/6053aa7aE63df02b7/3d69eb7befd57ff0.jpg!cr_1125x449_0_166!q70.jpg.dpg',
             },
         },
         selected: false,

@@ -1,0 +1,39 @@
+{
+    "name": "topic-library",
+    "prefix": "icon",
+    "glyphs": [
+        {
+            "icon": "caidan"
+        },
+        {
+            "icon": "fenlei"
+        },
+        {
+            "icon": "gouwuche"
+        },
+        {
+            "icon": "guanbi"
+        },
+        {
+            "icon": "houtui"
+        },
+        {
+            "icon": "qianjin"
+        },
+        {
+            "icon": "shouye"
+        },
+        {
+            "icon": "sousuo"
+        },
+        {
+            "icon": "xiangshang"
+        },
+        {
+            "icon": "xiangxia"
+        },
+        {
+            "icon": "yonghu"
+        }
+    ]
+}

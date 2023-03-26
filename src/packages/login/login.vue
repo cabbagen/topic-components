@@ -56,7 +56,7 @@ export default {
             const params = { username: this.username, password: this.password };
 
             getRegistedTopicGlobalProperty(request)(`/tc-proxy/${this.model}/login`, 'post', params).then((result) => {
-                if (result.status !== 200) {
+                if (result.code !== 100200) {
                     Toast.fail(result.message || '系统繁忙');
                     return;
                 }

@@ -1,20 +1,20 @@
 <template>
-    <div class="tc-navigation" @click="handleNavigationClick">
+    <div :class="['tc-navigation', hasBack === 1 ? 'has-back' : '']" @click="handleNavigationClick">
         <div class="tc-navigation-back" v-if="hasBack === 1" @click="handleGoBack">
-            <i class="iconhoutui iconfont"></i>
+            <svg-icon icon="houtui" />
         </div>
         <div class="tc-navigation-title">
             {{title}}
         </div>
         <div class="tc-navigation-menus" v-if="menus.length > 0" @click="handleTriggerMenus">
-            <i class="iconcaidan iconfont"></i>
+            <svg-icon icon="caidan" :style="{ position: 'relative', top: '1px' }" />
         </div>
         <common-mask v-model="visible">
             <div class="tc-navigation-menu-content">
                 <div class="tc-navigation-menu-group" v-for="(group, gIndex) in groups" :key="gIndex">
                     <div class="tc-navigation-menu-item" v-for="(item, iIndex) in group"  :key="iIndex" @click="handleMenuItemLink(item)">
                         <div class="tc-navigation-menu-item-icon">
-                            <i :class="['iconfont', item.icon]"></i>
+                            <svg-icon :icon="item.icon" />
                         </div>
                         <div class="tc-navigation-menu-item-title">
                             <span>{{item.title}}</span>
@@ -27,6 +27,7 @@
 </template>
 
 <script type="text/javascript">
+import SvgIcon from '../../common/svg-icon.vue';
 import CommonMask from '../../common/mask.vue';
 
 export default {
@@ -37,6 +38,7 @@ export default {
         };
     },
     components: {
+        'svg-icon': SvgIcon,
         'common-mask': CommonMask,
     },
     computed: {
@@ -60,7 +62,7 @@ export default {
         },
         hasBack: {
             type: Number,
-            default: 1,
+            default: 0,
         },
         menus: {
             validator: function(values) {
@@ -109,9 +111,13 @@ export default {
         background-color: #ffffff;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding: 0 0.08rem;
         box-sizing: border-box;
+
+        &.has-back {
+            justify-content: space-between;
+        }
     }
     .tc-navigation-title {
         top: 50%;

@@ -90,12 +90,9 @@ export default {
     },
     mounted: function() {
         document.addEventListener('click', (event) => {
-            const element = document.getElementById(`color-picker-${this.pickerKey}`);
-
-            if (element && event.path.find(item => item === element)) {
-                return;
+            if (event.target && event.target.querySelector(`#color-picker-${this.pickerKey}`)) {
+                this.visible = false;
             }
-            this.visible = false;
         }, false);
     },
     methods: {
